@@ -2,20 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Movement2D : MonoBehaviour
 {
-    public Vector3 jump;
-    public float jumpForce = 1;
-
     public float PlayerSpeed = 5;
-    Rigidbody rb;
-
-    public 
+    private Rigidbody2D rb;
+    public float jumpAmount = 10;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        jump = new Vector3(0.0f, 5f, 0.0f);
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -26,7 +21,7 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            rb.AddForce(Vector2.up * jumpAmount, ForceMode2D.Impulse);
         }
     }
 }
