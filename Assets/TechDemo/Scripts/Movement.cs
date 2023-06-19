@@ -22,7 +22,9 @@ public class Movement : MonoBehaviour
     void Update()
     {
         float amtToMove = Input.GetAxis("Horizontal") * PlayerSpeed * Time.deltaTime;
+        float amtToMove2 = Input.GetAxis("Vertical") * PlayerSpeed * Time.deltaTime;
         transform.Translate(Vector3.right * amtToMove);
+        transform.Translate(Vector3.forward * amtToMove2);
 
         if (Input.GetKeyDown("space"))
         {
