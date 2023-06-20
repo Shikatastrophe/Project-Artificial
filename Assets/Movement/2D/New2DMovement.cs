@@ -14,12 +14,12 @@ public class New2DMovement : MonoBehaviour
     public float speed;
     public float previousYVelocity;
 
-    [SerializeField]
-    private bool isFacingRight = true;
 
-   
+ 
 
-    
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,4 +54,6 @@ public class New2DMovement : MonoBehaviour
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
+
+   
 }

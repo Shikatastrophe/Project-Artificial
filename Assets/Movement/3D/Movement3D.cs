@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-interface IInteractable
-{
-    public void Interact();
-}
+
 public class Movement3D : MonoBehaviour
 { 
     public Rigidbody rb;
@@ -48,19 +45,6 @@ public class Movement3D : MonoBehaviour
 
     }
 
-    public void Interaction(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            Ray r = new Ray(interactorSource.position, interactorSource.right);
-            if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange))
-            {
-                if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
-                {
-                    interactObj.Interact();
-                }
-            }
-        }
-    }
+    
 
 }

@@ -1,25 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-
-
-public class Interact : MonoBehaviour
+interface IInteractable
 {
-  
+    public void Interact();
+}
+public class Interaction : MonoBehaviour
+{
+    public Transform interactorSource;
+    public float interactRange;
 
-    // Start is called before the first frame update
-    void Start()
+    public void InteractObj(InputAction.CallbackContext context)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*if (Input.GetKeyDown(KeyCode.E))
+        if (context.performed)
         {
-            //Debug.Log("A");
             Ray r = new Ray(interactorSource.position, interactorSource.right);
             if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange))
             {
@@ -28,6 +24,6 @@ public class Interact : MonoBehaviour
                     interactObj.Interact();
                 }
             }
-        }*/
+        }
     }
 }
