@@ -13,8 +13,8 @@ public class Movement3D : MonoBehaviour
     public float horizontal;
     public float vertical;
 
-    //public float initialspeed;
-    public float speed;
+    public float initialspeed;
+    float speed;
     public float scalingspeed;
 
     public Transform interactorSource;
@@ -32,20 +32,27 @@ public class Movement3D : MonoBehaviour
     {
         previousPosition = transform.position; //initialize the previous position
         yAxis = new Vector3(0, 1, 0); //initialize the y axis vector
+        speed = initialspeed;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         velocity = transform.position - previousPosition; //calculate the velocity vector
         previousPosition = transform.position; //update the previous position
 
         float dot = Vector3.Dot(velocity, yAxis); //calculate the dot product
 
-        if (dot > 0.001f)
+        if (dot > 0.01f)
         {
             Debug.Log("Moving upwards"); //log the movement direction
-            rb.velocity = Vector3.up * 10;
+            speed = scalingspeed;
+
+        }
+        else if (dot == 0)
+        {
+            Debug.Log("Non"); //log the movement direction
+            speed = initialspeed;
 
         }
 
@@ -57,7 +64,7 @@ public class Movement3D : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             Vector3 movedir = Quaternion.Euler(0f, targetangle, 0f) * Vector3.forward;
             rb.velocity = movedir.normalized * speed;
-            rb.velocity = new Vector3(rb.velocity.x, -1, rb.velocity.z);
+            rb.velocity = new Vector3(rb.velocity.x, -1.2f, rb.velocity.z);
         }
         else
         {
