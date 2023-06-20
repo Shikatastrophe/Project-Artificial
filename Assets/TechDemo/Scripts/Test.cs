@@ -34,6 +34,7 @@ public class Test : MonoBehaviour, IInteractable
         {
             animator.Play("Main");
             player2d.gameObject.SetActive(false);
+            player3d.gameObject.SetActive(true);
             /*
             player2d.GetComponent<Movement2D>().enabled = false;
             player2d.GetComponent<SpriteRenderer>().enabled = false;

@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class New2DMovement : MonoBehaviour
 {
+
+
     public Rigidbody2D rb;
     public Transform groundCheck;
     public LayerMask groundLayer;
