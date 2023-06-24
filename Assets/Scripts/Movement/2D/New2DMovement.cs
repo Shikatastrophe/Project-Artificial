@@ -17,7 +17,7 @@ public class New2DMovement : MonoBehaviour
     public float speed;
     public float previousYVelocity;
 
-
+    bool held = false;
  
 
 
@@ -30,7 +30,7 @@ public class New2DMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
@@ -42,16 +42,30 @@ public class New2DMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
-        
-
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
         if (isGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            if (context.performed)
+            {
+                held = true;
+            }
+            else if (context.canceled)
+            {
+                held = false;
+            }
+            if (held)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            }
+        } 
+        if (context.canceled && rb.velocity.y > 0f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
+        
     }
     private bool isGrounded()
     {
