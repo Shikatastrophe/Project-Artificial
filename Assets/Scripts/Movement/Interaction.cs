@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.Rendering.DebugUI;
 
 interface IInteractable
 {
@@ -42,5 +43,14 @@ public class Interaction : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (interactorSource == null)
+        {
+            return;
+        }
+        Gizmos.DrawWireSphere(interactorSource.position, interactRange);
     }
 }

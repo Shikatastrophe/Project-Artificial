@@ -14,10 +14,15 @@ public class New2DMovement : MonoBehaviour
     public float horizontal;
     public float jumpingPower;
 
+    private bool isFacingRight = true;
+
+
     public float speed;
     public float previousYVelocity;
 
     bool held = false;
+
+    public PlayerInput playerInput;
  
 
 
@@ -29,11 +34,32 @@ public class New2DMovement : MonoBehaviour
         previousYVelocity = rb.velocity.y;
     }
 
+    void Update()
+    {
+        if (DialogueManager.isActive)
+        {
+            playerInput.actions.FindAction("Move").Disable();
+        }
+        else
+        {
+            playerInput.actions.FindAction("Move").Enable();
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
+     
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
+
+        if (!isFacingRight && horizontal > 0f)
+        {
+            Flip();
+        }
+        else if (isFacingRight && horizontal < 0f)
+        {
+            Flip();
+        }
 
 
         float currentYVelocity = rb.velocity.y;
@@ -41,7 +67,16 @@ public class New2DMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
+       
         horizontal = context.ReadValue<Vector2>().x;
+    }
+
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector2 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
     }
 
     public void Jump(InputAction.CallbackContext context)
