@@ -606,6 +606,7 @@ MonoBehaviour:
   speed: 5
   previousYVelocity: 0
   playerInput: {fileID: 119287773}
+  holdingBox: 0
 --- !u!50 &119287776
 Rigidbody2D:
   serializedVersion: 4
@@ -10923,8 +10924,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083721398}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2724, y: -0.2724, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.2723999, y: -0.27239996, z: 0}
   m_LocalScale: {x: 1.5447, y: 1.5447, z: 1.5447}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10945,6 +10946,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ply: {fileID: 119287779}
   objecttoa: {fileID: 2083721399}
+  ply2: {fileID: 119287772}
+  isHolding: 0
 --- !u!50 &2083721401
 Rigidbody2D:
   serializedVersion: 4

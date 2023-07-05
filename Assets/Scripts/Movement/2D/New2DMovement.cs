@@ -23,9 +23,10 @@ public class New2DMovement : MonoBehaviour
     bool held = false;
 
     public PlayerInput playerInput;
- 
 
 
+    //para lo de las cajas
+    public bool holdingBox = false;
 
 
     // Start is called before the first frame update
@@ -52,11 +53,11 @@ public class New2DMovement : MonoBehaviour
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
 
-        if (!isFacingRight && horizontal > 0f)
+        if (!isFacingRight && horizontal > 0f && !holdingBox)
         {
             Flip();
         }
-        else if (isFacingRight && horizontal < 0f)
+        else if (isFacingRight && horizontal < 0f && !holdingBox)
         {
             Flip();
         }
