@@ -7,20 +7,23 @@ public class Movemove : MonoBehaviour, IInteractable
     public Transform ply;
     public Transform objecttoa;
     public GameObject ply2;
+    public Rigidbody2D rb;
 
-    public bool isHolding=false;
+    public bool isHolding;
 
     public void Interact()
     {
         if (!isHolding)
         {
             isHolding = true;
+            ply2.GetComponent<New2DMovement>().holdingBox = true;
             Debug.Log("loagarro");
             return;
         }
         if (isHolding)
         {
             isHolding = false;
+            ply2.GetComponent<New2DMovement>().holdingBox = false;
             Debug.Log("lodejo");
             return;
         }
@@ -33,17 +36,19 @@ public class Movemove : MonoBehaviour, IInteractable
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         if (isHolding)
         {
             objecttoa.SetParent(ply);
-            ply2.GetComponent<New2DMovement>().holdingBox = true;
+            
+            rb.bodyType = RigidbodyType2D.Kinematic;
         }
         if (!isHolding)
         {
             objecttoa.SetParent(null);
-            ply2.GetComponent<New2DMovement>().holdingBox = false;
+            
+            rb.bodyType = RigidbodyType2D.Dynamic;
         }
           
     }

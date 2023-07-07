@@ -68,8 +68,14 @@ public class New2DMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-       
-        horizontal = context.ReadValue<Vector2>().x;
+       if (!holdingBox)
+        {
+            horizontal = context.ReadValue<Vector2>().x;
+        }
+       if (holdingBox)
+        {
+            horizontal = context.ReadValue<Vector2>().x *.5f;
+        }
     }
 
     private void Flip()
@@ -82,7 +88,7 @@ public class New2DMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (isGrounded())
+        if (isGrounded() && !holdingBox)
         {
             if (context.performed)
             {
