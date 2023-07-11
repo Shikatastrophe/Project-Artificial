@@ -17,14 +17,14 @@ public class Movemove : MonoBehaviour, IInteractable
         {
             isHolding = true;
             ply2.GetComponent<New2DMovement>().holdingBox = true;
-            Debug.Log("loagarro");
+            //Debug.Log("loagarro");
             return;
         }
         if (isHolding)
         {
             isHolding = false;
             ply2.GetComponent<New2DMovement>().holdingBox = false;
-            Debug.Log("lodejo");
+            //Debug.Log("lodejo");
             return;
         }
         
