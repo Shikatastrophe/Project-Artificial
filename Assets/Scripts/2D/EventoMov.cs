@@ -10,31 +10,33 @@ public class EventoMov : MonoBehaviour, EEvent
     public float toZ;
     public float speed;
     public float TiempoMoviendo;
-    bool activado=false;
+    bool activado = false;
 
-   public void Evento()
-    {
-        if (TiempoMoviendo > Time.deltaTime)
-        {
+    public void Evento()
+    { 
+
             activado = true;
-        }
-        else
-        {
-            activado = false;
-        }
+          
     }
 
     public void Mover()
     {
 
-        Obj.transform.position = Vector3.MoveTowards(Obj.transform.position, new Vector3(toX, toY, toZ), speed * Time.deltaTime);
+        Obj.transform.position = Vector3.MoveTowards(Obj.transform.position, new Vector3(Obj.transform.position.x+toX, Obj.transform.position.y + toY, Obj.transform.position.z + toZ), speed * Time.deltaTime);
     }
 
     public void FixedUpdate()
     {
-        if (activado)
+
+        if (activado == true)
         {
             Mover();
+            TiempoMoviendo = TiempoMoviendo - Time.deltaTime;
+        }
+        
+        if(TiempoMoviendo < 0)
+        {
+            activado = false;
         }
     }
 }
