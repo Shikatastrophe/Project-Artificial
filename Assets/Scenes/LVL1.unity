@@ -667,7 +667,7 @@ Transform:
   m_Children:
   - {fileID: 2064195479}
   m_Father: {fileID: 766061606}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &230151662
 MonoBehaviour:
@@ -946,7 +946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactorSource: {fileID: 1866927981}
-  interactRange: 4
+  interactRange: 1.43
   interactable2D:
     serializedVersion: 2
     m_Bits: 256
@@ -1077,7 +1077,7 @@ Transform:
   - {fileID: 200007334}
   - {fileID: 1866927981}
   m_Father: {fileID: 766061606}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &389916100
 GameObject:
@@ -1122,7 +1122,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &485818390
 GameObject:
@@ -1438,16 +1438,16 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 886440248}
+  - {fileID: 230151661}
   - {fileID: 1988392004}
   - {fileID: 355371919}
-  - {fileID: 230151661}
   - {fileID: 1895832764}
   - {fileID: 617341042}
   - {fileID: 1931525399}
   - {fileID: 313726468}
   - {fileID: 88309828}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &881703616
 GameObject:
@@ -2564,7 +2564,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1644782201
 GameObject:
@@ -2903,7 +2903,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 766061606}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1988392005
 BoxCollider2D:
